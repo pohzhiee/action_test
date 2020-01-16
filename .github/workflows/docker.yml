@@ -1,6 +1,5 @@
 
 name: Docker Images
-# TEST
 on:
   push:
     paths:
@@ -26,7 +25,7 @@ jobs:
         run: |
           cd .docker/
           docker build -t pohzhiee/docker_sims:${TAG} \
-            -f Dockerfile.${TAG}
+            -f Dockerfile.${TAG} .
       - name: Login
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
